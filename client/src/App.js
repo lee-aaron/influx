@@ -1,14 +1,21 @@
 import React from 'react';
-import background from './background.jpg';
+import { Provider } from 'react-redux';
 import './App.css';
+import { configureStore, history } from './store/configureStore';
+import { ConnectedRouter } from 'connected-react-router';
+import Routes from './Routes';
+
+const store = configureStore();
 
 class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <img src={background} className="App-background"/>
-      </div>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <Routes />
+        </ConnectedRouter>
+      </Provider>
     );
   }
 
