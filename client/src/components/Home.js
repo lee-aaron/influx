@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import routes from '../constants/routes';
-import styles from './Home.css';
-import background from '../background.jpg';
+import './Home.css';
 
 export default class Home extends Component {
     render() {
         return (
             <div className="App">
-                <img src={background} className="App-background" />
+                <button className="home-link"><Link to={routes.UPLOAD} >Click here to use our service!</Link></button>
             </div>
         );
     }
