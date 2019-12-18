@@ -1,8 +1,1 @@
-export const AUTH = "AUTH";
-
-export function getAuth() {
-    return {
-        type: AUTH,
-        payload: ""
-    }
-}
+export { default as handleAuth } from './handleAuth';
