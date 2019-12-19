@@ -3,7 +3,6 @@ import axios from 'axios';
 import {Progress} from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Upload extends React.Component {
 
@@ -23,14 +22,14 @@ class Upload extends React.Component {
         // list allow mime type
         const types = ['image/png', 'image/jpeg', 'image/bmp']
         // loop access array
-        for (var x = 0; x < files.length; x++) {
+        for (let x = 0; x < files.length; x++) {
             // compare file type find doesn't matach
             if (types.every(type => files[x].type !== type)) {
                 // create error message and assign to container   
                 err[x] = files[x].type + ' is not a supported format\n';
             }
         };
-        for (var z = 0; z < err.length; z++) {// if message not same old that mean has error 
+        for (let z = 0; z < err.length; z++) {// if message not same old that mean has error 
             // discard selected file
             toast.error(err[z])
             event.target.value = null
@@ -53,7 +52,7 @@ class Upload extends React.Component {
         let files = event.target.files
         let size = 2000000
         let err = [];
-        for (var x = 0; x < files.length; x++) {
+        for (let x = 0; x < files.length; x++) {
             if (files[x].size > size) {
                 err[x] = files[x].type + 'is too large, please pick a smaller file\n';
             }
@@ -78,8 +77,14 @@ class Upload extends React.Component {
     }
 
     onClickHandler = () => {
+
+        if ( !this.state.selectedFile ) {
+            toast.error('Please select an image')
+            return;
+        }
+
         const data = new FormData()
-        for (var x = 0; x < this.state.selectedFile.length; x++) {
+        for (let x = 0; x < this.state.selectedFile.length; x++) {
             data.append('file', this.state.selectedFile[x])
         }
         axios.post("http://localhost:3001/upload", data, {

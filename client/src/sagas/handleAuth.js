@@ -1,7 +1,7 @@
 import { 
-    call, put, takeLatest
+    put, takeLatest
 } from 'redux-saga/effects';
-import { AUTH_REQUEST, AUTH_ERROR, AUTH_SUCCESS, authError, authSuccess } from '../actions/handleAuth';
+import { AUTH_REQUEST, authError, authSuccess } from '../actions/handleAuth';
 
 export function* watcherSaga() {
     yield takeLatest(AUTH_REQUEST, workerSaga)

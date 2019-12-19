@@ -4,8 +4,8 @@ import routes from './constants/routes';
 
 import Loading from './components/Loading/Loading';
 
-import background from './background.jpg';
 import './App.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux';
 
 const Header = lazy(() => import('./components/Header/Header'))

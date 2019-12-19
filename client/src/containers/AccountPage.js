@@ -39,7 +39,7 @@ class AccountPage extends React.Component {
     }
 
     componentDidUpdate = (prevProps, prevState) => {
-        if ( prevProps.isAuthenticated && this.state.redirect != prevState.redirect ) {
+        if ( prevProps.isAuthenticated && this.state.redirect !== prevState.redirect ) {
             this.setState({
                 redirect: false
             })
