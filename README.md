@@ -1,5 +1,11 @@
 # influx
+
 Upscaling anime wallpapers using deep learning and computer vision
 
-## How to Run
-Run `npm install` in both api and client; then run `npm run start` in both directories
+## Installation
+
+TBD
+
+## Research
+
+Trying out the CAR model on the DIV2K dataset
