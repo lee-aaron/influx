@@ -2,12 +2,12 @@ FROM tensorflow/tensorflow:latest-jupyter
 
 WORKDIR /influx
 
-COPY . .
+RUN apt-get update && apt-get install -y libgl1-mesa-dev
+RUN pip install --upgrade pip
+RUN pip3 install opencv-python
+RUN pip3 install scikit-learn
+RUN pip3 install imutils
 
-# Add Tini
-ENV TINI_VERSION v0.6.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
-RUN chmod +x /usr/bin/tini
-ENTRYPOINT ["/usr/bin/tini", "--"]
+COPY . .
 
 CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
